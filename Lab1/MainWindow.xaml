@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Lab1" Height="350" Width="525">
     <Grid>
         <Grid> 
             <Grid.ColumnDefinitions>
@@ -19,6 +19,17 @@
                         <GradientStop Color="GreenYellow" Offset="1.1" />
                     </RadialGradientBrush>
                 </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Margin="10,10,10,0" Row="0">
+                    <Button>Add</Button>
+                </Grid>
+                <Grid Margin="10,10,10,0" Row="1">
+                    <Button>Save</Button>
+                </Grid>
             </Grid>
             <Grid Column="1">
                 <Grid.Background>
