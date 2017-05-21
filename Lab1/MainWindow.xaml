@@ -7,6 +7,28 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid> 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Column="0">
+                <Grid.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="White" Offset="0.2" />
+                        <GradientStop Color="GreenYellow" Offset="1.1" />
+                    </RadialGradientBrush>
+                </Grid.Background>
+            </Grid>
+            <Grid Column="1">
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="White" Offset="0.01" />
+                        <GradientStop Color="Red" Offset="0.45" />
+                        <GradientStop Color="Blue" Offset="0.95" />
+                    </LinearGradientBrush>
+                </Grid.Background>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
