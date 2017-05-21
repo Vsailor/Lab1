@@ -39,6 +39,11 @@
                         <GradientStop Color="Blue" Offset="0.95" />
                     </LinearGradientBrush>
                 </Grid.Background>
+                <Grid Name="CommonGrid">
+                    <local:CarListUserControl>
+                        
+                    </local:CarListUserControl>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>
