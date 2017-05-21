@@ -9,16 +9,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Lab1
 {
     /// <summary>
-    /// Interaction logic for AddAutoWindow.xaml
+    /// Interaction logic for AddCarUserControl.xaml
     /// </summary>
-    public partial class AddAutoWindow : Window
+    public partial class AddCarUserControl : UserControl
     {
-        public AddAutoWindow()
+        public AddCarUserControl()
         {
             InitializeComponent();
         }
