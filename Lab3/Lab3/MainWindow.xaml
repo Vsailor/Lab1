@@ -11,8 +11,27 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Slider Height="25" Minimum="0" Maximum="360" 
-                Value="{Binding ElementName=rotate, Path= Angle}" Grid.Column="0" Width="200"/>
+        <StackPanel Grid.Column="0">
+            <Slider Height="25" Minimum="0" Maximum="360" 
+                Value="{Binding ElementName=rotate, Path= Angle}" Width="200"/>
+            <Slider Height="25" Minimum="0" Maximum="360" Value="{Binding ElementName=rotate2, Path= Angle}" Width="200"/>
+
+            <Label Content="Tetrahedron" HorizontalAlignment="Center"></Label>
+            <Label Content="oX"/>
+            <Slider Height="25" Maximum="100" Minimum="-100" Name="ox1Slider" Width="200" />
+            <Label Content="oY"/>
+            <Slider Height="25" Maximum="100" Minimum="-100" Name="oy1Slider" Width="200" />
+            <Label Content="oZ"/>
+            <Slider Height="25" Maximum="100" Minimum="-100" Name="oz1Slider" Width="200" />
+
+            <Label Content="Cube" HorizontalAlignment="Center"></Label>
+            <Label Content="oX"/>
+            <Slider Height="25" Maximum="100" Minimum="-100" Name="oxSlider" Width="200" />
+            <Label Content="oY"/>
+            <Slider Height="25" Maximum="100" Minimum="-100" Name="oySlider" Width="200" />
+            <Label Content="oZ"/>
+            <Slider Height="25" Maximum="100" Minimum="-100" Name="ozSlider" Width="200" />
+        </StackPanel>
         <Grid Grid.Column="1">
             <Viewport3D>
                 <Viewport3D.Camera>
@@ -46,17 +65,50 @@
                             </GeometryModel3D>
                         </ModelVisual3D.Content>
                         <ModelVisual3D.Transform>
-                            <RotateTransform3D>
-                                <RotateTransform3D.Rotation>
-                                    <AxisAngleRotation3D x:Name="rotate" Axis="0 1 0" />
-                                </RotateTransform3D.Rotation>
-                            </RotateTransform3D>
+                            <Transform3DGroup>
+                                <RotateTransform3D>
+                                    <RotateTransform3D.Rotation>
+                                        <AxisAngleRotation3D x:Name="rotate" Axis="0 1 0" />
+                                    </RotateTransform3D.Rotation>
+                                </RotateTransform3D>
+                                <TranslateTransform3D OffsetX="{ Binding ElementName=ox1Slider, Path=Value }"
+                                                      OffsetY="{ Binding ElementName=oy1Slider, Path=Value }"
+                                                      OffsetZ="{ Binding ElementName=oz1Slider, Path=Value }"></TranslateTransform3D>
+                            </Transform3DGroup>
+                          
+                            
+                        </ModelVisual3D.Transform>
+                    </ModelVisual3D>
+                    <ModelVisual3D>
+                        <ModelVisual3D.Content>
+                            <GeometryModel3D>
+                                <GeometryModel3D.Geometry>
+                                    <MeshGeometry3D Positions="0,0,0 1,0,0 0,1,0 1,1,0 
+                                                           0,0,1 1,0,1 0,1,1 1,1,1"
+                                      TriangleIndices="0,2,1 1,2,3 0,4,2 2,4,6 
+                                                       0,1,4 1,5,4 1,7,5 1,3,7
+                                                       4,5,6 7,6,5 2,6,3 3,6,7"/>
+                                </GeometryModel3D.Geometry>
+                                <GeometryModel3D.Material>
+                                    <DiffuseMaterial Brush="Red" />
+                                </GeometryModel3D.Material>
+                            </GeometryModel3D>
+                        </ModelVisual3D.Content>
+                        <ModelVisual3D.Transform>
+                            <Transform3DGroup>
+                                <RotateTransform3D>
+                                    <RotateTransform3D.Rotation>
+                                        <AxisAngleRotation3D x:Name="rotate2" Axis="0 1 0" />
+                                    </RotateTransform3D.Rotation>
+                                </RotateTransform3D>
+                                <TranslateTransform3D OffsetX="{ Binding ElementName=oxSlider, Path=Value }"
+                                                      OffsetY="{ Binding ElementName=oySlider, Path=Value }"
+                                                      OffsetZ="{ Binding ElementName=ozSlider, Path=Value }"></TranslateTransform3D>
+                            </Transform3DGroup>
                         </ModelVisual3D.Transform>
                     </ModelVisual3D>
                 </Viewport3D.Children>
             </Viewport3D>
-           
         </Grid>
-        
     </Grid>
 </Window>
